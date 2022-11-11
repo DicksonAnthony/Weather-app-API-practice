@@ -1,5 +1,53 @@
-* {
+body {
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  display: flex;
+  font-size: 120%;
+  height: 100vh;
+  align-items: center;
+  background: #222;
+  justify-content: center;
+  font-family: "Open-sans", sans-serif;
+  background-image: url("https://source.unsplash.com/1600x900/?landscape");
+}
+.card {
+  color: white;
+  padding: 2.5em;
+  background: hsla(0, 0%, 0%, 0.816);
+  width: 100%;
+  border-radius: 30px;
+  max-width: 420px;
+  margin: 1em;
+}
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button {
+  margin: 0.5em;
+  border-radius: 50%;
+  border: none;
+  height: 44px;
+  width: 44px;
+  outline: none;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+button:hover {
+  background: #7c7c7c6b;
+}
+input.search-bar {
+  border: none;
+  outline: none;
+  padding: 0.4em 1em;
+  border-radius: 24px;
+  background: #7c7c7c2b;
+  color: white;
+  font-family: inherit;
+  font-size: 105%;
+  outline: none;
+  width: calc(100% - 100px);
+}
+h1 .temp {
+  margin: 0;
 }
