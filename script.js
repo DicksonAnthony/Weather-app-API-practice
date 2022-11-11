@@ -1,10 +1,16 @@
 let weather = {
   apiKey: "6b78144f8d77084dd9d4baaf09cfffc5",
-  fetchWeather: (city) => {
+  fetchWeather: function (city) {
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${this.apiKey}`
     )
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          alert("No weather found.");
+          throw new Error("No weather found.");
+        }
+        return response.json();
+      })
       .then((data) => this.displayWeather(data));
   },
   displayWeather: (data) => {
@@ -21,9 +27,9 @@ let weather = {
     document.querySelector(".humidity").innerText = `Humidity: ${humidity}%`;
     document.querySelector(".wind").innerText = `Wind speed: ${speed} km/h`;
     document.querySelector(".weather").classList.remove(".loading");
-    document.body.styles.backgorundImage = `url('https://source.unsplash.com/1600x900/?${name}')`;
+    document.body.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${name}')`;
   },
-  search: () => {
+  search: function () {
     this.fetchWeather(document.querySelector("search-bar").value);
   },
 };
@@ -36,3 +42,5 @@ document.querySelector(".search-bar").addEventListener("keyup", (event) => {
   }
 });
 weather.fetchWeather("Denver");
+
+// Do not use arrow functions when using the {this} keyword
