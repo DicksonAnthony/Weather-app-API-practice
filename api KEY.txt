@@ -1,1 +1,0 @@
-https://api.openweathermap.org/data/2.5/weather?q=Lagos&units=metric&appid=6b78144f8d77084dd9d4baaf09cfffc5
